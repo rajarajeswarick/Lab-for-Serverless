@@ -25,7 +25,9 @@ The following is a sample request payload for a DynamoDB create item operation:
     }
 }
 ```
+
 The following is a sample request payload for a DynamoDB read item operation:
+
 ```json
 {
     "operation": "read",
@@ -110,7 +112,7 @@ Create function
 Replace the boilerplate coding with the following code snippet and click "Deploy"
 Example Python Code
 
-```json
+```python
 from __future__ import print_function
 import boto3
 import json
