@@ -38,6 +38,7 @@ The following is a sample request payload for a DynamoDB read item operation:
 }
 ```
 **Setup**
+
 Create Custom Policy
 We need to create a custom policy for least privilege
 
@@ -79,7 +80,9 @@ In the policy editor, click JSON, and paste the following
     }
 ```
 Give name "lambda-custom-policy", and click "Create policy" on botom right
-Create Lambda IAM Role
+
+**Create Lambda IAM Role**
+
 Create the execution role that gives your function permission to access AWS resources.
 
 To create an execution role
@@ -96,20 +99,17 @@ Create IAM role
 
 Role name – lambda-apigateway-role.
 Click "Create role"
-Create Lambda Function
+
+**Create Lambda Function**
 To create the function
 
 Click "Create function" in AWS Lambda Console
 Create function
-
-Select "Author from scratch". Use name LambdaFunctionOverHttps , select Python 3.13 as Runtime. Under Permissions, click the arrow beside "Change default execution role", then "use an existing role" and select lambda-apigateway-role that we created, from the drop down
-
-Click "Create function"
-
-Lambda basic information
+<img width="1801" height="1162" alt="image" src="https://github.com/user-attachments/assets/9b461e79-79f8-4272-8989-ec7d0c1ca916" />
 
 Replace the boilerplate coding with the following code snippet and click "Deploy"
 Example Python Code
+
 ```json
 from __future__ import print_function
 import boto3
@@ -146,11 +146,10 @@ def lambda_handler(event, context):
         return operations[operation](event.get('payload'))
     else:
         raise ValueError('Unrecognized operation "{}"'.format(operation))
-```
+'''
 
-<img width="1835" height="942" alt="image" src="https://github.com/user-attachments/assets/c3119c86-260c-4fb7-9dfc-4b7fbf631843" />
+<img width="1835" height="942" alt="image" src="https://github.com/user-attachments/assets/2defc44d-312a-419e-acce-3fe1fc0f310d" />
 
-Lambda Code
 
 Test Lambda Function
 Let's test our newly created function. We haven't created DynamoDB and the API yet, so we'll do a sample echo operation. The function should output whatever input we pass.
