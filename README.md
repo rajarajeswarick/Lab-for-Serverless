@@ -37,7 +37,7 @@ The following is a sample request payload for a DynamoDB read item operation:
     }
 }
 ```
-Setup
+**Setup**
 Create Custom Policy
 We need to create a custom policy for least privilege
 
