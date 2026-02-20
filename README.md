@@ -148,7 +148,7 @@ def lambda_handler(event, context):
         return operations[operation](event.get('payload'))
     else:
         raise ValueError('Unrecognized operation "{}"'.format(operation))
-'''
+```
 
 <img width="1835" height="942" alt="image" src="https://github.com/user-attachments/assets/2defc44d-312a-419e-acce-3fe1fc0f310d" />
 
