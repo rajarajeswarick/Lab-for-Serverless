@@ -110,7 +110,7 @@ Lambda basic information
 
 Replace the boilerplate coding with the following code snippet and click "Deploy"
 Example Python Code
-
+```json
 from __future__ import print_function
 import boto3
 import json
@@ -146,6 +146,10 @@ def lambda_handler(event, context):
         return operations[operation](event.get('payload'))
     else:
         raise ValueError('Unrecognized operation "{}"'.format(operation))
+```
+
+<img width="1835" height="942" alt="image" src="https://github.com/user-attachments/assets/c3119c86-260c-4fb7-9dfc-4b7fbf631843" />
+
 Lambda Code
 
 Test Lambda Function
