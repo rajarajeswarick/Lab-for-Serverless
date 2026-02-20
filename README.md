@@ -244,8 +244,13 @@ To run this from Postman, select "POST" , paste the API invoke url. Then under "
 <img width="925" height="462" alt="image" src="https://github.com/user-attachments/assets/05d6a8d2-45b3-411a-8e40-fea515a44763" />
 
 To run this from terminal using Curl, run the below
-'''json 
-$ curl -X POST -d "{\"operation\":\"create\",\"tableName\":\"lambda-apigateway\",\"payload\":{\"Item\":{\"id\":\"1\",\"name\":\"Bob\"}}}" https://$API.execute-api.$REGION.amazonaws.com/prod/DynamoDBManager
+
+### Create Item (curl)
+
+```bash
+curl -X POST \
+  -d "{\"operation\":\"create\",\"tableName\":\"lambda-apigateway\",\"payload\":{\"Item\":{\"id\":\"1\",\"name\":\"Bob\"}}}" \
+  "https://$API.execute-api.$REGION.amazonaws.com/prod/DynamoDBManager"
 ```
 
 To validate that the item is indeed inserted into DynamoDB table, go to Dynamo console, select "lambda-apigateway" table, select "Explore table items" button from top right, and the newly inserted item should be displayed.
@@ -253,7 +258,7 @@ To validate that the item is indeed inserted into DynamoDB table, go to Dynamo c
 
 To get all the inserted items from the table, we can use the "list" operation of Lambda using the same API. Pass the following JSON to the API, and it will return all the items from the Dynamo table
 
-'''json
+```json
 {
     "operation": "list",
     "tableName": "lambda-apigateway",
@@ -267,7 +272,6 @@ We have successfully created a serverless API using API Gateway, Lambda, and Dyn
 
 **Cleanup**
 Let's clean up the resources we have created for this lab.
-
 Cleaning up DynamoDB
 To delete the table, from DynamoDB console, select the table "lambda-apigateway", then on top right , click "Actions", then "Delete table"
 
